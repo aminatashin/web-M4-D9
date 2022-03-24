@@ -4,17 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNavbar from "./component/MyNavbar";
 import BookList from "./component/BookList";
 import Registration from "./component/Registration";
-import { useState } from "react";
 
 // import { useState } from "react";
 
 function App() {
-  const [search, setSearch] = useState("");
-
   return (
     <BrowserRouter>
       <div>
-        <MyNavbar search={search} setSearch={setSearch} />
+        <MyNavbar />
 
         <Routes>
           <Route path="/" element={<BookList />} />

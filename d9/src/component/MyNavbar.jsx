@@ -1,6 +1,6 @@
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const MyNavbar = ({ search, setSearch }) => (
+const MyNavbar = () => (
   <Navbar bg="primary" variant="dark">
     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
     <Nav className="mr-auto">
@@ -13,13 +13,7 @@ const MyNavbar = ({ search, setSearch }) => (
       <Nav.Link href="#pricing">Pricing</Nav.Link>
     </Nav>
     <Form inline>
-      <FormControl
-        type="text"
-        placeholder="Search"
-        className="mr-sm-2"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-light">Search</Button>
     </Form>
   </Navbar>

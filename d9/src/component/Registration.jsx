@@ -1,5 +1,6 @@
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
   const [info, setInfo] = useState({
@@ -9,24 +10,26 @@ const Registration = () => {
     password: "",
     passwordConfirm: "",
   });
-  //   useEffect(() => {
-  //     handleSubmit();
-  //   }, []);
+  const Navigate = useNavigate();
 
-  //  const handleSubmit = ()=>{
-
-  //     }
-  //  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (info.password !== info.passwordConfirm) {
+      Navigate("/registration");
+    } else {
+      Navigate("/");
+    }
+  };
 
   return (
     <Container>
       <Row className="justify-content-center">
         <Col md={6}>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>Name</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Name"
                 required
                 value={info.name}
@@ -36,7 +39,7 @@ const Registration = () => {
             <Form.Group>
               <Form.Label>SurName</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Surname"
                 required
                 value={info.surname}
